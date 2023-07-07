@@ -32,7 +32,7 @@ Feature: Login
     Scenario: User want to login with invalid credential
         When User input username "invalid" and password "invalid"
         And User click on login button
-        Then System should display an error message "Epic sadface: Username and password do not match any user in this service"
+        Then System should be display an error message "Epic sadface: Username and password do not match any user in this service"
 
     @smoke
     Scenario: Locked out user want to login
@@ -44,26 +44,26 @@ Feature: Login
     Scenario: Invalid User want to click the close button next to the error message
         When User input username "invalid" and password "invalid"
         And User click on login button
-        Then System should display an error message "Epic sadface: Username and password do not match any user in this service"
+        Then System should be display an error message "Epic sadface: Username and password do not match any user in this service"
         When User click on the close button next to the error message
         Then System should be removing the error message 
 
     @regression
     Scenario: User want to login with empty username and password
         And User click on login button
-        Then System should display an error message "Epic sadface: Username and password are required."
+        Then System should be display an error message "Epic sadface: Username and password are required."
 
     @regression
     Scenario: User want to login with username only
         When User only input username field
         And User click on login button
-        Then System should display an error message "Epic sadface: Password is required"
+        Then System should be display an error message "Epic sadface: Password is required"
 
     @regression
     Scenario: User want to login with password only
         When User only input password field
         And User click on login button
-        Then System should display an error message "Epic sadface: Username is required"        
+        Then System should be display an error message "Epic sadface: Username is required"        
 
 
 

@@ -38,9 +38,8 @@ Then("User should failed login with error message",() =>{
     cy.get("[data-test='error']").should("have.text","Epic sadface: Sorry, this user has been locked out.")
 })
 
-Then("System should display an error message {string}",(msg) =>{
-
-    cy.get("[data-test='error']").should("have.text",msg)
+Then("System should be display an error message {string}",(msg) =>{
+    cy.get("h3[data-test='error']").should('exist').and("have.text",msg)
 })
 
 When("User click on the close button next to the error message",() =>{

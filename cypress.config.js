@@ -27,5 +27,6 @@ module.exports = defineConfig({
       omitFiltered: true,
       filterSpecs: true
     },
+    //reporter: require.resolve("@badeball/cypress-cucumber-preprocessor/pretty-reporter")
   },
 });

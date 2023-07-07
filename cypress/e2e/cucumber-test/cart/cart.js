@@ -22,6 +22,22 @@ Then("Button remove and cart icon badge should display corresponding number",() 
         })   
 })
 
+When("user clicks all the remove buttons on the selected products",() =>{
+    let length
+    
+    cy.get('button[id^="remove"]').should('be.visible')
+    .then(($val) =>{
+        length = $val.length
+        for (let x = 1; x<= length; x++ ){
+            cy.get('button[id^="remove"]').contains('Remove').click()
+        }
+    })   
+})
+
+Then("System should change remove buttons to add to cart buttons on the selected products and remove cart badge",() =>{
+    cy.get('.shopping_cart_badge').should('not.exist')
+})
+
 When("User clicks on the remove button based on the product named {string}",(prodName) =>{
             
     
@@ -31,7 +47,26 @@ When("User clicks on the remove button based on the product named {string}",(pro
             let idBtn = '#remove-' + replace
             cy.get(idBtn).click()
             // cy.log(idBtn)
+    })
+})
+// Melarikan karakter2 khusus dalam string
+function escapeString(str) {
+    return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+}
+
+When("User add products as following",(datatable) =>{
+    datatable.hashes().forEach(el => {
+        let elString = el.product.toString()
+        cy.get('.inventory_item_name').contains(elString)
+        .then(()=>{ 
+            let replace = elString.replace(/ /g,"-").toLowerCase()
+            let idBtn = '#add-to-cart-' + replace
+            cy.get(escapeString(idBtn)).click() // Larikan karakter2 khusus pada idBtn menghindari Syntax error, unrecognized expression
+            
+            // cy.log(idBtn)
         })
+    })
+    
 })
 
 Then("System should remove product named {string} from cart and display corresponding product",(prodName) =>{
@@ -178,3 +213,37 @@ Then("system should display thank you message",() =>{
     cy.get(".checkout_complete_container").should('be.visible')
 })
 
+Then("System should be navigate user to cart page",() =>{
+    cy.url().should('include','cart.html')
+})
+
+When("User input lastname {string}, and postal code {int}",(lastname,postal) =>{
+    cy.get("input[id='last-name']").type(lastname)
+    cy.get("input[id='postal-code']").type(postal)
+})
+
+When("User input firstname {string}, and postal code {int}",(firstname,postal) =>{
+    cy.get("input[id='first-name']").type(firstname)
+    cy.get("input[id='postal-code']").type(postal)
+})
+
+When("User input firstname {string}, and lastname {string}",(firstname,lastname) =>{
+    cy.get("input[id='first-name']").type(firstname)
+    cy.get("input[id='last-name']").type(lastname)
+})
+
+When("User input postal code {int}",(postal) =>{
+    cy.get("input[id='postal-code']").type(postal)
+})
+
+When("User input lastname {string}",(lastname) =>{
+    cy.get("input[id='last-name']").type(lastname)
+})
+
+When("User input firstname {string}",(firstname) =>{
+    cy.get("input[id='first-name']").type(firstname)
+})
+
+When("User click cancel button",() =>{
+    cy.get("button[name='cancel']").click()
+})

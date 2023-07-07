@@ -26,6 +26,9 @@
     },
     "json": {
       "enabled": true
+    },
+    "pretty": {
+      "enabled": true
     }
   }
   
