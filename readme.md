@@ -17,9 +17,9 @@ The version that I am using :
 -  Install Node.js®  [Link NodeJS](https://nodejs.org/en)
 -  Open Code Editor e.g. `Visual Studio Code` and type `npm init` in the terminal within our project folder and fill in the required information
   -  install the `@badeball/cypress-cucumber-preprocessor` using the following command : 
-  ```
-  npm install -D @badeball/cypress-cucumber-preprocessor
-  ```
+      ```
+      npm install -D @badeball/cypress-cucumber-preprocessor
+      ```
 -  It is recommended to install the esbuild bundler by Gleb Bahmutov, which will make your code run much faster. Use the following command :
     ```
     npm install -D @bahmutov/cypress-esbuild-preprocessor
