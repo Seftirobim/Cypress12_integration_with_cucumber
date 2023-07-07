@@ -21,9 +21,9 @@ The version that I am using :
   npm install -D @badeball/cypress-cucumber-preprocessor
   ```
 -  It is recommended to install the esbuild bundler by Gleb Bahmutov, which will make your code run much faster. Use the following command :
-  ```
-  npm install -D @bahmutov/cypress-esbuild-preprocessor
-  ```
+    ```
+    npm install -D @bahmutov/cypress-esbuild-preprocessor
+    ```
 - Run Cypress to generate several folders and files using the following command :
   ```
   npx cypress open
