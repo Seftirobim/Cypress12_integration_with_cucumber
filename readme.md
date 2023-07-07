@@ -129,9 +129,9 @@ The version that I am using :
   ```
 - Why not import And as well ? Read here : [badeball/CCP/FAQ](https://github.com/badeball/cypress-cucumber-preprocessor/blob/master/docs/faq.md#function-members-and-and-but-are-missing)
 
-## Running tests
+## Running tests (requires npm@5.2.0 or greater)
 
-- Cypress App (requires npm@5.2.0 or greater)
+- Cypress App 
   ```sh
   npx cypress open
   ``` 
